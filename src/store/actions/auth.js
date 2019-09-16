@@ -66,7 +66,7 @@ export function autoLogin() {
                 dispatch(authSuccess(token))
                 dispatch(
                     autoLogout(
-                        (expirationDate.getTime() - new Date().getTime) / 1000
+                        (expirationDate.getTime() - new Date().getTime()) / 1000
                     )
                 )
             }
