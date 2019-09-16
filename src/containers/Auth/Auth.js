@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import classes from './Auth.css'
 import Button from '../../components/Ui/Button/Button'
 import Input from '../../components/Ui/Input/Input'
-import is from 'is_js'
+
+function validateEmail(email) {
+    let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    return re.test(String(email).toLowerCase())
+}
 
 export default class Auth extends Component {
     state = {
@@ -51,7 +55,7 @@ export default class Auth extends Component {
             isValid = value.trim() !== '' && isValid
         }
         if (validation.email) {
-            isValid = is.email(value) && isValid
+            isValid = validateEmail(value) && isValid
         }
         if (validation.minLength) {
             isValid = value.length >= validation.minLength && isValid
