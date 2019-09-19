@@ -9,6 +9,7 @@ module.exports = {
         Atomics: 'readonly',
         SharedArrayBuffer: 'readonly',
     },
+    parser: 'babel-eslint',
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
@@ -18,10 +19,15 @@ module.exports = {
     },
     plugins: ['react'],
     rules: {
-        indent: ['error', 4],
+        indent: ['error', 2, { SwitchCase: 1 }],
         'linebreak-style': ['error', 'windows'],
         quotes: ['error', 'single'],
         semi: ['error', 'never'],
         'react/prop-types': 0,
+    },
+    settings: {
+        react: {
+            version: 'detect',
+        },
     },
 }
